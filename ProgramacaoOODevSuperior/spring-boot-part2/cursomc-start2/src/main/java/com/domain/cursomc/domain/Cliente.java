@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,12 +28,14 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
+	@Column(unique = true)
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo;
 
 	// @JsonManagedReference //Serializa os endereços
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // o Cascade vai indicar que toda alteração que eu fizer no cliente, irá refletir em seu endereço tbm
 	private List<Endereco> enderecos = new ArrayList<>();
 
 	// O telefone é uma coleção que não necessáriamente precisamos criar uma classe,
