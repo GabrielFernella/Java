@@ -7,29 +7,23 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.domain.cursomc.domain.Cliente;
+import com.domain.cursomc.domain.Produto;
 import com.domain.cursomc.services.validation.ClienteUpdate;
 
 @ClienteUpdate //utilizado para validar 
-public class ClienteDTO implements Serializable {
+public class ProdutoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-
-	@NotEmpty(message = "Preenchimento obrigatório")
-	@Size(min = 5, max = 80, message = "O tamnho deve ser entre 5 e 80 catacteres")
 	private String nome;
-	
-	@NotEmpty(message = "Preenchimento obrigatório")
-	@Email(message = "E-mnail inválido")
-	private String email;
+	private Double preco;
 
-	public ClienteDTO() {
-	}
+	public ProdutoDTO() {}
 	
-	public ClienteDTO(Cliente obj) {
+	public ProdutoDTO(Produto obj) {
 		id = obj.getId();
 		nome = obj.getNome();
-		email = obj.getEmail();
+		preco = obj.getPreco();
 	}
 
 	public Integer getId() {
@@ -48,14 +42,14 @@ public class ClienteDTO implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
-
+	
 	
 
 }
