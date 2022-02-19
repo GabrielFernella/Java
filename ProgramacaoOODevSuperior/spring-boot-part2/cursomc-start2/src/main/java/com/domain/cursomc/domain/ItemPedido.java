@@ -40,10 +40,18 @@ public class ItemPedido implements Serializable {
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
+	
+	public void setPedido(Pedido pedido) {
+		id.setPedido(pedido);
+	}  // instancia para adicionar ao json
 
 	public Produto getProduto() {
 		return id.getProduto();
 	}
+	
+	public void setProduto(Produto produto) {
+		id.setProduto(produto);
+	} // instancia para adicionar ao json
 
 	public ItemPedidoPK getId() {
 		return id;
