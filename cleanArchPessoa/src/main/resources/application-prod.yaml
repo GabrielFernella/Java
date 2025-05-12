@@ -1,0 +1,17 @@
+
+
+spring:
+  application.name: cleanArchPessoa
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: admin
+    password: admin
+  jpa:
+    show-sql: true
+    properties:
+        hibernate:
+          format_sql: true
+
